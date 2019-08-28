@@ -56,9 +56,9 @@ class InventoryModule(BaseInventoryPlugin):
             )
 
         for group_data in data['instance_groups']:
-            self.inventory.add_group(group_data['name'])
+            group_name = self.inventory.add_group(group_data['name'])
             self.inventory.set_variable(
-                group_data['name'], 'group_capacity', group_data['capacity']
+                group_name, 'group_capacity', group_data['capacity']
             )
             for instance in group_data['instances']:
-                self.inventory.add_child(group_data['name'], instance)
+                self.inventory.add_child(group_name, instance)
