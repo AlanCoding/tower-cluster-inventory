@@ -1,0 +1,9 @@
+- hosts: all
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: ping all hosts in cluster
+      ping:
+
+    - name: echo capacity for the instance
+      debug: var=capacity
